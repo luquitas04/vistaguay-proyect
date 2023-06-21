@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-import { Button, Input } from "./index"
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Input } from "./index";
 import { Register } from '../pages';
 
 export const Form = () => {
-
+  
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -30,6 +30,13 @@ export const Form = () => {
     setMostrarVentana(false);
   }
 
+  // Visibilidad de contraseña 
+  const [shown,setShown] = useState(true);
+  const switchShown = () => {
+    event.preventDefault();
+    setShown(!shown);
+  };
+
   return (
     <form>
       <div>
@@ -44,10 +51,15 @@ export const Form = () => {
           <Input
             className={'inp'}
             placeholder={'contraseña'}
-            type={'password'}
+            type={shown ? 'text' : 'password'}
             value={password}
             onChange={event => setPassword(event.target.value)}
           />
+          {/* <Button 
+            className={!shown ? 'btn_inp-eye' : 'btn_inp-eyeSlash'} 
+            onClick={switchShown} 
+          /> */}
+          
           <Button className={'btn'} textButton={'login'} onClick={login} />
           <Link className='link_form'>¿Olvidaste tu clave?</Link>
         </div>

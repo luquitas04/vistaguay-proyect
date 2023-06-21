@@ -7,10 +7,12 @@
     --verdeSuave: #bde9ce;
     --verdeOscuro: #003a3c;
     --verde-vistaguay: #47c278;
+    --colorIconsPage: #fcc306;
     --azul: #001718;
     --celeste: #00acd1;
     --rojo: #cf4941;
     --gris: #d6d6d6;
+    --grisHr: #444444;
     --dark: #222;
     --darkdisabled: #222222be;
     --light: #e6e8e8;
@@ -62,6 +64,12 @@ h4 {
     font-family: var(--titleFont);
 }
 
+hr {
+    border: none;
+    background: var(--grisHr);
+    height: 1px;
+}
+
 /* Logos */
 .logo_grz {
     padding: 1rem;
@@ -70,6 +78,13 @@ h4 {
 .logo_vsg {
     margin: 0;
 }
+
+.arrow-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Animaciones */
 
 /* Login / Register */
 .body_img {
@@ -196,6 +211,44 @@ h4 {
     text-align: center;
 }
 
+.btn_inp-eye,
+.btn_inp-eyeSlash {
+    position: absolute;
+    top: 47.1%;
+    left: 56%;
+    height: 2rem;
+    width: 2rem;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width:1298px) {
+
+    .btn_inp-eye,
+    .btn_inp-eyeSlash {
+        top: 47.4%;
+        left: 58.5%;
+    }
+}
+
+@media (max-width:768px) {
+
+    .btn_inp-eye,
+    .btn_inp-eyeSlash {
+        top: 47.5%;
+        left: 75%;
+    }
+}
+
+.btn_inp-eye {
+    background-image: url("./assets/eye.svg");
+}
+
+.btn_inp-eyeSlash {
+    background-image: url("./assets/eyeSlash.svg");
+}
+
 /* Register */
 
 .register_div {
@@ -277,6 +330,7 @@ h4 {
         margin-top: 1rem;
     }
 }
+
 .btn_closeWindow-register {
     padding: 1rem;
     border: none;
@@ -292,8 +346,167 @@ h4 {
     background: var(--verde-vistaguay);
     color: var(--darkdisabled);
 }
+
 @media (max-width: 768px) {
     .btn_closeWindow-register {
         min-width: 100%;
     }
 }
+
+/* Sidebar */
+.sidebar_div {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    padding: 1rem;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index {
+    z-index: 999;
+    position: absolute;
+    height: 100%;
+    width: 21.5%;
+    background-color: var(--dark);
+    padding-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .sidebar_div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.nav {
+    padding: .5rem;
+}
+
+.div_links {
+    display: flex;
+    justify-content: start;
+}
+
+.navLink {
+    color: var(--gris);
+    font-family: var(--fonts);
+    font-size: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: var(--colorIconsPage);
+}
+
+.div_users {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    align-items: start;
+}
+
+.div_users span {
+    color: var(--colorIconsPage);
+    font-size: .8rem;
+    font-family: var(--fonts);
+}
+
+.div_users h4 {
+    margin: 0;
+    padding: .5rem 0;
+    font-size: 1.25rem;
+    color: var(--gris);
+    font-family: var(--fonts);
+}
+
+.btn_users {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-transform: uppercase;
+    font-size: .7rem;
+    background-color: var(--dark);
+    color: var(--lightdisabled);
+}
+
+.btn_users:hover {
+    cursor: pointer;
+    color: var(--colorIconsPage);
+}
+
+.link_logo {
+    font-size: .5rem;
+    font-family: var(--fonts);
+    letter-spacing: .2rem;
+    color: var(--gris);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.link_logo:hover {
+    color: var(--colorIconsPage);
+}
+
+.footer_sidebar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-logo_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 1rem;
+    background: var(--dark);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-logo_arrow:hover {
+    background: var(--grisHr);
+}
+
+/* Mapa */
+
+.btn-toggle_map {
+    position: absolute;
+    height: 5rem;
+    border: none;
+    top: 40%;
+    background-color: var(--darkdisabled);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.indexBtn {
+    z-index: -1;
+    position: absolute;
+    height: 5rem;
+    border: none;
+    top: 40%;
+    background-color: var(--darkdisabled);
+    cursor: pointer;
+}
+
+.img-toggle_map {
+    height: 2rem;
+    padding: 1rem;
+}
+
+/* Estadisticas */

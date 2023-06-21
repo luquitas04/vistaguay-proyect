@@ -31,7 +31,7 @@ export const Register = ({ onClickWindow }) => {
             type={'text'}
             value={username}
             onChange={event => setUsername(event.target.value)}
-            placeholder={'ingresa tú Nombre'}
+            placeholder={'ingresa tú nombre'}
           />
           <Input
             className={'register_inp'}
