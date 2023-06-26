@@ -1,65 +1,14 @@
-import { useState } from "react"
-import { References, Statistics, Tomos } from "../pages";
+import {useState} from 'react'
 
 export const useToggle = () => {
-    
-    const [state, setState] = useState(false);
+    const [isActive, setIsActive] = useState(false)
 
-    const showWindow = () => {
-        setState(!state);
-    };
-
-    const closeWindow = () => {
-        setState();
-    };
-
-    const toggleTomos = () => {
-        setState(!state);
-
-        return (
-            <>
-                {state && (<Tomos />)}
-            </>
-        )
+    const toggle = () => {
+        setIsActive(!isActive)
     }
-
-    const toggleStats = () => {
-        setState(!state);
-
-        return (
-            <>
-                {state && (<Statistics />)}
-            </>
-        )
-    }
-
-    const toggleReferences = () => {
-        setState(!state);
-
-        return (
-            <>
-                {state && (<References />)}
-            </>
-        )
-    }
-
-    const closeReferences = () => {
-        setState(false);
-
-        return (
-            <>
-                {!state && <References />}
-            </>
-        );
-    };
 
     return {
-        showWindow,
-        closeWindow,
-        toggleTomos,
-        toggleStats,
-        toggleReferences,
-        closeReferences
+        toggle,
+        isActive
     }
 }
-

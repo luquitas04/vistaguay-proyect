@@ -1,11 +1,9 @@
-import { Sidebar } from "../components"
 
-export const Statistics = () => {
+export const Statistics = ({ className }) => {
   return (
-    <div className="grid">
-      <Sidebar />
+    <div className={className}>
       <div className="">
-        
+
       </div>
     </div>
   )

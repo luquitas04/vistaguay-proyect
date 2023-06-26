@@ -1,65 +1,52 @@
 import 'animate.css';
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-import Gravanz from '../assets/gravanz.svg';
 import { Button } from "./Button";
-import { Chart, MostrarReferencias, Nodos, VlDa } from "../assets";
-import { useToggle } from "../hooks/useToggle";
-import { Arrow } from "../assets";
+import Gravanz from '../assets/gravanz.svg';
+import { Arrow,Chart, MostrarReferencias, Nodos, VlDa } from "../assets";
 
-export const Sidebar = ({ className,closeSidebar }) => {
-
-  const {
-    toggleTomos,
-    toggleStats,
-    toggleReferences,
-    closeReferences
-  } = useToggle();
+export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showStats }) => {
 
   return (
     <>
-      <div className={className} >
+      <div className={ className } >
         <Button
           className="btn-logo_arrow"
-          onClick={closeSidebar}
+          onClick={ closeSidebar }
           textButton={<Arrow />}
         /> 
         <nav className='nav'>
-          <img className='logo_grz' src={Gravanz} alt="Gravanz Logo" />
+          <img className='logo_grz' src={ Gravanz } alt="Gravanz Logo" />
 
           <div className="navLink_div">
 
             <div className="div_links">
-              <Nodos />
-              <NavLink
-                className='navLink'
-                onClick={toggleTomos}
-              >
-                Nodos disponibles
-              </NavLink>
+                <Nodos />
+              <Button
+                className={'navLink'}
+                onClick={ showNodos }
+                textButton={'Nodos disponibles'}
+              />
             </div>
             <hr />
 
             <div className="div_links" >
-              <MostrarReferencias />
-              <NavLink
-                className='navLink'
-                onClick={toggleReferences}
-              >
-                Mostrar Referencias
-              </NavLink>
+                <MostrarReferencias />
+              <Button
+                className={'navLink'}
+                onClick={ showReferences }
+                textButton={'Mostrar Referencias'}
+              />
             </div>
             <hr />
 
             <div className="div_links" >
-              <Chart />
-              <NavLink
-                className='navLink'
-                onClick={toggleStats}
-              >
-                Estadisticas
-              </NavLink>
+                <Chart />
+              <Button
+                className={'navLink'}
+                onClick={ showStats }
+                textButton={'Estadisticas'}
+              />
             </div>
             <hr />
           </div>
