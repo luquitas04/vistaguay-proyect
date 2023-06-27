@@ -1,11 +1,16 @@
 import 'animate.css';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from "./Button";
 import Gravanz from '../assets/gravanz.svg';
 import { Arrow,Chart, MostrarReferencias, Nodos, VlDa } from "../assets";
 
 export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showStats }) => {
+  
+  const navigate = useNavigate();
+  const cerrarSesion = () => {
+    navigate('/');
+  }
 
   return (
     <>
@@ -55,6 +60,7 @@ export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showSt
             <span>Usuario</span>
             <h4>user.example</h4>
             <Button
+              onClick={cerrarSesion}
               className={'btn_users'}
               textButton={'cerrar sesión'}
             />

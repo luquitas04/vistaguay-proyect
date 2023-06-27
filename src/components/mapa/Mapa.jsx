@@ -44,65 +44,62 @@ export const Mapa = () => {
     toggle();
   }
   const cSidebar = () => {
-    if (isActive) {
-      setClase("sidebar_div");
-      setClaseBtn('btn-toggle_map'); }
+    setClase("sidebar_div");
+    setClaseBtn('btn-toggle_map');
+    isActiveNodos && tNodos();
+    isActiveStats && tStats();
     toggle();
-      // { !isActive ? isActive : setClaseNodos('main_div-nodos') } 
-      // showNodos();
-      // { !isActiveStats ? isActiveStats : setClaseNodos('main_div-stats') } 
-      // showStatistics();
-    }
-    // Toggle Nodos
-    const { toggle: tNodos, isActive: isActiveNodos } = useToggle();
-    const [claseNodos, setClaseNodos] = useState('main_div-nodos');
-    const showNodos = () => {
-      tNodos();
-      if (!isActiveNodos) {
-        setClaseNodos('index-nodos animate__animated animate__fadeIn');
-      } else setClaseNodos('main-div-nodos animate__animated animate__fadeOut');
-    }
-    // Toggle Referencias
-    const { toggle: tRef, isActive: isActiveRef } = useToggle();
-    const [claseRef, setClaseRef] = useState('main_div-ref');
-    const showReferences = () => {
-      tRef();
-      if (!isActiveRef) {
-        setClaseRef('index-ref animate__animated animate__fadeIn');
-      } else setClaseRef('main_div-ref animate__animated animate__fadeOut')
-    }
-    // Toggle Estadisticas
-    const { toggle: tStats, isActive: isActiveStats } = useToggle();
-    const [claseStats, setClaseStats] = useState('main_div-stats');
-    const showStatistics = () => {
-      tStats();
-      if (!isActiveStats) {
-        setClaseStats('index-stats animate__animated animate__fadeIn');
-      } else setClaseStats('main_div-stats animate__animated animate__fadeOut');
-    }
+  }
+  // Toggle Nodos
+  const { toggle: tNodos, isActive: isActiveNodos } = useToggle();
+  const [claseNodos, setClaseNodos] = useState('main_div-nodos');
+  const showNodos = () => {
+    if (!isActiveNodos) {
+      setClaseNodos('index-nodos animate__animated animate__fadeIn');
+    } else setClaseNodos('main-div-nodos animate__animated animate__fadeOut');
+    tNodos();
+  }
+  // Toggle Referencias
+  const { toggle: tRef, isActive: isActiveRef } = useToggle();
+  const [claseRef, setClaseRef] = useState('main_div-ref');
+  const showReferences = () => {
+    if (!isActiveRef) {
+      setClaseRef('index-ref animate__animated animate__fadeIn');
+    } else setClaseRef('main_div-ref animate__animated animate__fadeOut')
+    tRef();
+  }
+  // Toggle Estadisticas
+  const { toggle: tStats, isActive: isActiveStats } = useToggle();
+  const [claseStats, setClaseStats] = useState('main_div-stats');
+  const showStatistics = () => {
+    if (!isActiveStats) {
+      setClaseStats('index-stats animate__animated animate__fadeIn');
+    } else setClaseStats('main_div-stats animate__animated animate__fadeOut');
+    tStats();
+  }
 
-    return (
-      <>
-        <Button
-          className={claseBtn}
-          onClick={handleButtonClick}
-          textButton={<img src={Gravanz} className="img-toggle_map" />}
+  return (
+    <>
+      <Button
+        className={claseBtn}
+        onClick={handleButtonClick}
+        textButton={<img src={Gravanz} className="img-toggle_map" />}
+      />
+      {handleButtonClick && (
+        <Sidebar
+          closeSidebar={cSidebar}
+          className={clase}
+          showNodos={showNodos}
+          showReferences={showReferences}
+          showStats={showStatistics}
         />
-        {handleButtonClick && (
-          <Sidebar
-            closeSidebar={cSidebar}
-            className={clase}
-            showNodos={showNodos}
-            showReferences={showReferences}
-            showStats={showStatistics}
-          />
-        )}
+      )}
 
-        {showNodos && (<NodosPage className={claseNodos} />)}
-        {showReferences && (<References className={claseRef} />)}
-        {showStatistics && (<Statistics className={claseStats} />)}
+      {isActiveNodos && (<NodosPage className={claseNodos} />)}
+      {isActiveRef && (<References className={claseRef} />)}
+      {isActiveStats && (<Statistics className={claseStats} />)}
 
-        <div id="map"></div>
-      </>
-    );
-  };
+      <div id="map"></div>
+    </>
+  );
+};

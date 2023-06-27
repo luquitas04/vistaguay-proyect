@@ -233,7 +233,6 @@ hr {
 }
 
 @media (max-width:1298px) {
-
     .btn_inp-eye,
     .btn_inp-eyeSlash {
         top: 47.4%;
@@ -242,7 +241,6 @@ hr {
 }
 
 @media (max-width:768px) {
-
     .btn_inp-eye,
     .btn_inp-eyeSlash {
         top: 47.5%;
@@ -386,6 +384,20 @@ hr {
     align-items: center;
 }
 
+@media (min-width: 1000px) {
+    .index {
+        z-index: 999;
+        position: absolute;
+        height: 100%;
+        width: 23%;
+        background-color: var(--dark);
+        padding-right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+/* 
 @media (max-width: 768px) {
     .sidebar_div {
         position: absolute;
@@ -395,7 +407,7 @@ hr {
         justify-content: center;
         align-items: center;
     }
-}
+} */
 
 .nav {
     padding: .5rem;
@@ -521,7 +533,7 @@ hr {
     padding: 1rem;
 }
 
-/* Tomos */
+/* Nodos */
 .main_div-nodos {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

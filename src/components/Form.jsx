@@ -31,11 +31,11 @@ export const Form = () => {
   }
 
   // Visibilidad de contraseña 
-  const [shown,setShown] = useState(true);
-  const switchShown = () => {
-    event.preventDefault();
-    setShown(!shown);
-  };
+  // const [shown,setShown] = useState(true);
+  // const switchShown = () => {
+  //   event.preventDefault();
+  //   setShown(!shown);
+  // };
 
   return (
     <form>
@@ -51,7 +51,7 @@ export const Form = () => {
           <Input
             className={'inp'}
             placeholder={'contraseña'}
-            type={shown ? 'text' : 'password'}
+            type={'password'}
             value={password}
             onChange={event => setPassword(event.target.value)}
           />
