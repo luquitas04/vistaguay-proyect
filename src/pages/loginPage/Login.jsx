@@ -1,6 +1,7 @@
-import { Form } from "../components";
-import Gravanz from '../assets/gravanz.svg';
-import Vistaguay from '../assets/vistaguay.svg';
+import "./login.css"
+import { Form } from "../../components";
+import Gravanz from '../../assets/gravanz.svg';
+import Vistaguay from '../../assets/vistaguay.svg';
 
 export const Login = () => {
   

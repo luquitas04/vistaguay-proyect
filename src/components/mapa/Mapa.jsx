@@ -1,5 +1,5 @@
 import 'animate.css';
-
+import "./mapa.css";
 import "./map.css";
 import Map from "ol/Map.js";
 import TileLayer from "ol/layer/Tile.js";
@@ -8,8 +8,8 @@ import { fromLonLat } from "ol/proj";
 import XYZ from "ol/source/XYZ";
 
 import { useEffect, useState } from 'react';
-import { Sidebar } from "../Sidebar";
-import { Button } from "../Button";
+import { Sidebar } from "../sidebar/Sidebar";
+import { Button } from "../button/Button";
 import Gravanz from '../../assets/gravanz.svg';
 import { NodosPage, References, Statistics } from '../../pages';
 import { useToggle } from '../../hooks/useToggle';
@@ -40,7 +40,7 @@ export const Mapa = () => {
 
   const handleButtonClick = () => {
     setClase('index animate__animated animate__fadeInLeft');
-    setClaseBtn("indexBtn");
+    setClaseBtn("indexBtn");    
     toggle();
   }
   const cSidebar = () => {

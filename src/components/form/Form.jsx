@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Input } from "./index";
-import { Register } from '../pages';
+import { Button, Input } from "../index";
+import { Register } from '../../pages';
+import "./form.css";
 
 export const Form = () => {
   

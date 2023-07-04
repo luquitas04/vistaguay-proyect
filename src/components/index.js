@@ -1,6 +1,6 @@
-export * from './Button';
-export * from './Form';
-export * from './Input';
+export * from './button/Button';
+export * from './form/Form';
+export * from './input/Input';
 export * from './mapa/Mapa';
-export * from './Sidebar';
+export * from './sidebar/Sidebar';
 

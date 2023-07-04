@@ -1,0 +1,25 @@
+
+.btn-toggle_map {
+    position: absolute;
+    height: 5rem;
+    border: none;
+    top: 40%;
+    background-color: var(--darkdisabled);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.indexBtn {
+    z-index: -1;
+    position: absolute;
+    height: 5rem;
+    border: none;
+    top: 40%;
+    background-color: var(--darkdisabled);
+    cursor: pointer;
+}
+
+.img-toggle_map {
+    height: 2rem;
+    padding: 1rem;
+}

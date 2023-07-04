@@ -1,0 +1,98 @@
+
+.main_div-nodos {
+    display: none;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    background: var(--darkdisabled);
+}
+
+.index-nodos {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    left: 19rem;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+    background: var(--darkdisabled);
+}
+
+.grid-nodos {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(2rem, 1fr));;
+    gap: 1rem;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.nodos-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.nodos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--dark);
+}
+
+.nodos:nth-child(1) {
+    background: var(--light);
+    color: var(--dark);
+}
+
+.nodos h4 {
+    font-size: 1rem;
+}
+
+.nodos span {  
+    font-size: .9rem;
+    color: var(--light);
+    font-family: var(--fonts);
+}
+
+.nodos span:nth-child(2) {
+    font-size: .7rem;
+    text-transform: uppercase;
+    color: var(--colorIconsPage);
+}
+
+.nodos:hover {
+    transition: 1s;
+    cursor: pointer;
+    color: var(--darkNodos);
+    background: var(--colorIconsPage);
+}
+
+.nodos:hover span{
+    color: var(--dark);
+}
+
+.nodos:hover h4 {
+    color: var(--dark);
+}
+
+.nodo-closeWindow {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background: none;
+    border: none;
+}
+
+.nodo-closeWindow:hover {
+    cursor: pointer;
+}

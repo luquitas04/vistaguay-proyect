@@ -1,4 +1,5 @@
-import { localidades } from "../data/localidades";
+import "./nodos.css";
+import { localidades } from "../../data/localidades";
 
 export const NodosPage = ({ className }) => {
 

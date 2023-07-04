@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button, Input } from "../components";
+import { Button, Input } from "../../components";
 import { useNavigate } from "react-router";
+import "./register.css";
 
 export const Register = ({ onClickWindow }) => {
   

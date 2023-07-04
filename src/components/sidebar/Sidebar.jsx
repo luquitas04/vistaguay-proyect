@@ -1,9 +1,9 @@
 import 'animate.css';
+import "./sidebar.css";
 import { Link, useNavigate } from "react-router-dom"
-
-import { Button } from "./Button";
-import Gravanz from '../assets/gravanz.svg';
-import { Arrow,Chart, MostrarReferencias, Nodos, VlDa } from "../assets";
+import Gravanz from '../../assets/gravanz.svg';
+import { Arrow,Chart, MostrarReferencias, Nodos, VlDa } from "../../assets";
+import { Button } from '../button/Button';
 
 export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showStats }) => {
   

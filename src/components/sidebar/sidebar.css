@@ -1,0 +1,133 @@
+
+.sidebar_div {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    /* max-width: rem; */
+    padding: 1rem;
+    background-color: var(--dark);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.index {
+    z-index: 999;
+    position: absolute;
+    height: 100%;
+    width: 18.5rem;
+    /* width: 21.5%; */
+    background-color: var(--dark);
+    padding-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .index {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.nav {
+    padding: .5rem;
+}
+
+.div_links {
+    display: flex;
+    justify-content: start;
+}
+
+.navLink {
+    color: var(--gris);
+    font-family: var(--fonts);
+    font-size: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+    background: var(--dark);
+    border: none;
+}
+
+.navLink:hover {
+    color: var(--colorIconsPage);
+    cursor: pointer;
+}
+
+.div_users {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    align-items: start;
+}
+
+.div_users span {
+    color: var(--colorIconsPage);
+    font-size: .8rem;
+    font-family: var(--fonts);
+}
+
+.div_users h4 {
+    margin: 0;
+    padding: .5rem 0;
+    font-size: 1.25rem;
+    color: var(--gris);
+    font-family: var(--fonts);
+}
+
+.btn_users {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-transform: uppercase;
+    font-size: .7rem;
+    background-color: var(--dark);
+    color: var(--lightdisabled);
+}
+
+.btn_users:hover {
+    cursor: pointer;
+    color: var(--colorIconsPage);
+}
+
+.link_logo {
+    font-size: .5rem;
+    font-family: var(--fonts);
+    letter-spacing: .2rem;
+    color: var(--gris);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.link_logo:hover {
+    color: var(--colorIconsPage);
+}
+
+.footer_sidebar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-logo_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 1rem;
+    background: var(--dark);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-logo_arrow:hover {
+    background: var(--grisHr);
+}
