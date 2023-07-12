@@ -73,12 +73,15 @@ hr {
 }
 
 /* Logos */
-.logo_grz {
-    padding: 1rem;
+.logo_vsg-s {
+    padding: 2rem;
+    height: 1.5rem;
 }
 
 .logo_vsg {
     margin: 0;
+    width: 6rem;
+    padding: 1rem;
 }
 
 .arrow-icon {

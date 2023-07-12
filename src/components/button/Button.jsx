@@ -2,11 +2,13 @@ export const Button = (
   { 
     className, 
     onClick, 
-    textButton 
+    textButton,
+    style
   }
   ) => {
   return (
     <button 
+      style={style}
       className={className} 
       onClick={onClick}
     >

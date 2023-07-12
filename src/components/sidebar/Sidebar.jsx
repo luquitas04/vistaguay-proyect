@@ -1,57 +1,91 @@
 import 'animate.css';
 import "./sidebar.css";
 import { Link, useNavigate } from "react-router-dom"
-import Gravanz from '../../assets/gravanz.svg';
-import { Arrow,Chart, MostrarReferencias, Nodos, VlDa } from "../../assets";
+import { Arrow, Chart, MostrarReferencias, Nodos, VlDa } from "../../assets";
 import { Button } from '../button/Button';
+import { useState } from 'react';
+import { useToggle } from '../../hooks/useToggle';
+import { NodosPage } from '../../pages';
+import  Vistaguay  from '../../assets/vistaguayLogoDefault.svg';
 
-export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showStats }) => {
-  
+export const Sidebar = ({ isActive, toggle }) => {
+
   const navigate = useNavigate();
   const cerrarSesion = () => {
     navigate('/');
   }
+  const [isVisible, setIsVisible] = useState(isActive);
+  const closeSidebar = () => {
+    setIsVisible(false);
+    setTimeout(() =>  toggle() , 700);
+  };
 
+// Toggle Nodos
+  const { toggle:toggleNodos, isActive:isActiveNodos } = useToggle();
+
+// Toggle References
+  const { toggle:toggleReferences, isActive:isActiveReferences } = useToggle(); 
+
+// Toggle Stats
+  const { toggle:toggleStats, isActive:isActiveStats } = useToggle(); 
+  // useEffect(() => {
+  //   console.log(isActiveStats)
+  // }, [isActiveStats])
+  
   return (
     <>
-      <div className={ className } >
+      <div
+        className={`sidebar_div ${isVisible ? 'fadeInLeft' : 'fadeOutLeft'}`}
+        style={{
+          display: isActive ? 'flex' : 'none',
+          zIndex: isActive ? 990 : -1,
+        }}
+        onAnimationEnd={() => {
+          if (!isVisible) {
+            toggle();
+          }
+        }}
+        >
+          <div className='container_logo'>
+            <Link>
+              <img src={Vistaguay} className='logo_sidebar' alt="Logo Vistaguay"/>
+            </Link>
+          </div>
+        <div className='sidebar_content'>
+
         <Button
           className="btn-logo_arrow"
-          onClick={ closeSidebar }
+          onClick={closeSidebar}
           textButton={<Arrow />}
-        /> 
+          />
         <nav className='nav'>
-          <img className='logo_grz' src={ Gravanz } alt="Gravanz Logo" />
 
           <div className="navLink_div">
 
             <div className="div_links">
-                <Nodos />
+              <Nodos />
               <Button
+                onClick={toggleNodos}
                 className={'navLink'}
-                onClick={ showNodos }
                 textButton={'Nodos disponibles'}
-              />
+                />
             </div>
             <hr />
-
             <div className="div_links" >
-                <MostrarReferencias />
+              <MostrarReferencias />
               <Button
                 className={'navLink'}
-                onClick={ showReferences }
                 textButton={'Mostrar Referencias'}
-              />
+                />
             </div>
             <hr />
 
             <div className="div_links" >
-                <Chart />
+              <Chart />
               <Button
                 className={'navLink'}
-                onClick={ showStats }
                 textButton={'Estadisticas'}
-              />
+                />
             </div>
             <hr />
           </div>
@@ -63,18 +97,22 @@ export const Sidebar = ({ className,closeSidebar,showNodos,showReferences,showSt
               onClick={cerrarSesion}
               className={'btn_users'}
               textButton={'cerrar sesión'}
-            />
+              />
           </div>
           <hr />
 
           <div className="footer_sidebar">
             <Link className="link_logo" to={"https://www.vistaguay.com/"} target="_blank">
               desarrollo agtech
+              <VlDa />
             </Link>
-            <VlDa />
           </div>
         </nav>
       </div>
+      </div>
+      
+      {isActiveNodos &&(<NodosPage isActiveNodos={isActiveNodos} toggleNodos={toggleNodos} />)}
+
     </>
   )
 }

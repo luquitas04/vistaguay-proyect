@@ -41,7 +41,7 @@ export const Form = () => {
   return (
     <form>
       <div>
-        <div className='container'>
+        <div className='div_container'>
           <Input
             className={'inp'}
             placeholder={'email'}

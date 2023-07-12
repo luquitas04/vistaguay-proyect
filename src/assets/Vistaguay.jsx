@@ -1,16 +1,14 @@
-
-
-export const VlDa = ({style, fill = "#484848" }) => {
+export const Vistaguay = ({style}) => {
   return (
     <>
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         className={style}
+        xmlns="http://www.w3.org/2000/svg"
+        // fill={fill}  s
         style={{
-          width: "94.4px",
-          height: "10px",
-        }
-      }
+          width: "150px",
+          height: "20px",
+        }}
       >
         <g id="XMLID_1_" fill="#b3b3b3" >
           <g id="XMLID_10_" fill="#f2f2f2" >

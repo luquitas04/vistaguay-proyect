@@ -1,35 +1,23 @@
-
-.main_div-nodos {
-    display: none;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    margin: 0;
-    align-items: center;
-    text-align: center;
-    background: var(--darkdisabled);
-}
-
-.index-nodos {
+.container {
     position: absolute;
     height: 100%;
-    width: 80%;
-    left: 19rem;
-    display: flex;
-    justify-content: center;
-    z-index: 9999;
-    background: var(--darkdisabled);
+    width: 100%;
+    left: 18rem;
+    background-color: var(--darkNodos);
 }
 
-.grid-nodos {
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(2rem, 1fr));;
-    gap: 1rem;
-    margin: 0;
+.grid_nodos {
+    height: 100%;
+    width: 100%;
+    /* left: 18rem; */
+    display: grid; 
+    grid-template-columns:repeat(auto-fit, minmax(2rem, 1fr));; 
     align-items: center;
     text-align: center;
+    gap: 1rem;
 }
 
-.nodos-wrap {
+.nodos_wrap {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -95,4 +83,13 @@
 
 .nodo-closeWindow:hover {
     cursor: pointer;
+}
+
+.btn_close-nodos {
+    position: relative;
+    top: 5%;
+    left: 5%;
+    padding: 0;
+    border: none;
+    background: none;
 }
