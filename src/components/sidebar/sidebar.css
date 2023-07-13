@@ -1,4 +1,4 @@
-/* Animaciones */
+ /* Animaciones */
 .fadeInLeft {
     animation-name: fadeInLeft;
     animation-duration: 1s;
@@ -74,6 +74,7 @@
     justify-content: center;
     height: 5rem;
     background-color:#1414145b;
+    /* background-color: var(--dark); */
     margin-bottom: .3rem; 
 }
 

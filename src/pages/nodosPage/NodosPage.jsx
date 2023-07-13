@@ -1,23 +1,30 @@
 import "./nodos.css";
 import { localidades } from "../../data/localidades";
 import { Button } from "../../components";
-import { useEffect } from "react";
 import { Xmark } from "../../assets";
+import { useState } from "react";
 
 export const NodosPage = ({ isActiveNodos, toggleNodos }) => {
-  useEffect(() => {
-    console.log(isActiveNodos)
-  }, [isActiveNodos])
+  const [isVisible, setIsVisible] = useState(isActiveNodos);
+  const closeNodos = () => {
+    setIsVisible(false);
+    setTimeout(() => toggleNodos(), 700);
+  };
 
   return (
     <>
-      <div className="container"
-      style={{
-        display: isActiveNodos ? 'flex' : 'none',
-        zIndex: isActiveNodos ? 990 : -1,
-      }}>
+      <div className={`container ${isVisible ? 'fadein' : 'fadeout'}`}
+        style={{
+          display: isActiveNodos ? 'flex' : 'none',
+          zIndex: isActiveNodos ? 990 : -1,
+        }}>
+        <Button
+          className={'btn_close-nodos'}
+          onClick={closeNodos}
+          textButton={<Xmark />}
+        />
         <div className="grid_nodos">
-          {/* <div className="nodos_wrap">   */}
+          <div className="nodos_wrap">
             <div className="nodos">
               <h4>Todos mis nodos</h4>
             </div>
@@ -30,12 +37,7 @@ export const NodosPage = ({ isActiveNodos, toggleNodos }) => {
               ))
             }
           </div>
-            {/* <Button
-              className={'btn_close-nodos'}
-              onClick={toggleNodos}
-              textButton={<Xmark/>}
-            /> */}
-        {/* </div>   */}
+        </div>
       </div>
     </>
   )
