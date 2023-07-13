@@ -25,15 +25,26 @@ export const Sidebar = ({ isActive, toggle }) => {
     }
     setTimeout(() => toggle(), 700);
   };
-  
+
   // Toggle Nodos
   const { toggle: toggleNodos, isActive: isActiveNodos } = useToggle();
-  
+  const tNodos = () => {
+    if (isActiveStats) {
+      setTimeout(() => toggleStats(), 100);
+    };
+    toggleNodos();
+  };
   // Toggle References
   const { toggle: toggleReferences, isActive: isActiveReferences } = useToggle();
 
   // Toggle Stats
   const { toggle: toggleStats, isActive: isActiveStats } = useToggle();
+  const tStats = () => {
+    if (isActiveNodos) {
+      setTimeout(() => toggleNodos(), 100);
+    };
+    toggleStats();
+  };
 
   return (
     <>
@@ -68,7 +79,7 @@ export const Sidebar = ({ isActive, toggle }) => {
               <div className="div_links">
                 <Nodos />
                 <Button
-                  onClick={toggleNodos}
+                  onClick={tNodos}
                   className={'navLink'}
                   textButton={'Nodos disponibles'}
                 />
@@ -87,7 +98,7 @@ export const Sidebar = ({ isActive, toggle }) => {
               <div className="div_links" >
                 <Chart />
                 <Button
-                  onClick={toggleStats}
+                  onClick={tStats}
                   className={'navLink'}
                   textButton={'Estadisticas'}
                 />

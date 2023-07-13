@@ -43,6 +43,7 @@ const miData = {
 
 const misOptions = {
   responsive: true,
+  animation: false,
   plugins: {
     title: {
       display: true,

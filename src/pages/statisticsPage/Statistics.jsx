@@ -1,6 +1,6 @@
 import "./statistics.css"
 import { useEffect, useRef, useState } from "react";
-import { Button, LineChart } from "../../components";
+import { Barchart, Button, LineChart, Piechart } from "../../components";
 import { Xmark } from "../../assets";
 
 export const Statistics = ({ isActiveStats, toggleStats }) => {
@@ -49,19 +49,19 @@ export const Statistics = ({ isActiveStats, toggleStats }) => {
 
           <div className="graphics">
             <div className="graphic">
-
+              <Barchart />            
             </div>
           </div>
 
           <div className="graphics">
             <div className="graphic">
-
+              <Barchart />      
             </div>
           </div>
 
           <div className="graphics">
             <div className="graphic">
-
+              <Piechart />
             </div>
           </div>
 
