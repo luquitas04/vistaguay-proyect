@@ -6,15 +6,20 @@ import View from "ol/View.js";
 import { fromLonLat } from "ol/proj";
 import XYZ from "ol/source/XYZ";
 
-import { useEffect } from 'react';
-import { Button } from "../button/Button";
+import VectorLayer from "ol/layer/Vector";
+import VectorSource from 'ol/source/Vector.js';
+import GeoJSON from 'ol/format/GeoJSON.js';
+import Style from "ol/style/Style";
+import Stroke from "ol/style/Stroke";
 
+import { useEffect, useState } from 'react';
+import { Button } from "../button/Button";
 import { useToggle } from '../../hooks/useToggle';
 import { Sidebar } from '../sidebar/Sidebar';
-import  Vistaguay  from '../../assets/vistaguayLogoDefault.svg';
-
+import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
 
 export const Mapa = () => {
+
 
   useEffect(() => {
     const map = new Map({
@@ -25,26 +30,75 @@ export const Mapa = () => {
             url: "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
           }),
         }),
+        zone,
       ],
       view: new View({
         center: fromLonLat([-64, -31]),
-        zoom: 8,
+        zoom: 7,
       }),
     });
-  }, [])
 
-  const {toggle,isActive} = useToggle();
- 
+  // points.getSource().on('change', () => {
+  //   if (points.getSource().getState() === 'ready') {
+  //     const features = points.getSource().getFeatures();
+  //     setPointData(features);
+  //   }
+  // });
+
+}, []);
+
+// const [pointData, setPointData] = useState([]);
+// const points = new VectorLayer({
+//   source: new VectorSource({
+//     url: 'https://api.maptiler.com/data/8aa5a139-79c9-445f-850c-08befd4e6428/features.json?key=S9agc6Xvaa1CPUnUrgnt',
+//     format: new GeoJSON(),
+//   }),
+//   style: function(feature) {
+//     return new Style({
+//       stroke: new Stroke({
+//         color: '#222222be',
+//         width: 7,
+//       }),
+//       fill: null,
+//     });
+//   },})
+
+  const zone = new VectorLayer({
+    source: new VectorSource({
+      url: 'https://api.maptiler.com/data/8aa5a139-79c9-445f-850c-08befd4e6428/features.json?key=S9agc6Xvaa1CPUnUrgnt',
+      format: new GeoJSON(),
+    }),
+    style: function(feature) {
+      return new Style({
+        stroke: new Stroke({
+          color: '#222222be',
+          width: 5,
+        }),
+        fill: null,
+      });
+    },
+  });
+  const { toggle, isActive } = useToggle();
+
   return (
     <div>
       <Button
         onClick={toggle}
         className={`btn_toggle-map animate__animated ${isActive ? 'fadeOutLeft' : 'fadeInLeft'}`}
         style={{ zIndex: isActive ? -1 : 1 }}
-        textButton={<img src={Vistaguay} className="img_toggle-map" alt="Logo Vistaguay"/>}
+        textButton={<img src={Vistaguay} className="img_toggle-map" alt="Logo Vistaguay" />}
       />
-      {isActive &&(<Sidebar isActive={isActive} toggle={toggle}/>)}
-      <div style={{ zIndex:0 }} id="map"></div>
+      {isActive && (<Sidebar isActive={isActive} toggle={toggle} />)}
+      <div style={{ zIndex: 0 }} id="map"></div>
+
+      {/* <div style={{ zIndex: 1 }} id="points">
+      {pointData.map((point, index) => (
+        <div key={index}>
+          <p>Point ID: {point.getId()}</p>
+          <p>Point Geometry: {point.getGeometry().getCoordinates()}</p>
+        </div>
+      ))}
+    </div> */}
     </div>
   );
 };

@@ -9,7 +9,7 @@ export const Login = () => {
     <div className="body_img">
       <div className="width">
         <div className='login_pres'>
-              <img className='logo_vsg-s' src={Vistaguay} alt="Gravanz Logo"/>
+              <img className='logo_vsg-s' src={Vistaguay} alt="Vistaguay Logo"/>
               <hr />
               <h3>monitor de nodos</h3>
         </div> 

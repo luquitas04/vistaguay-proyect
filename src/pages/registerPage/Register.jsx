@@ -13,7 +13,7 @@ export const Register = ({ onClickWindow }) => {
   const submitRegister = () => {
     event.preventDefault();
 
-    if ( username === 'Lucas' && password === '123' && mail === 'lucas@mail.com') {
+    if ( username === 'Lucas' && password === '123' && mail === 'lucas@gmail.com') {
       navigate('/mapa') } else {
         alert('Hay campos que estan mal');
       }
