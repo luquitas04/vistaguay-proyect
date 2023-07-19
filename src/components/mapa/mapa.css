@@ -46,11 +46,6 @@
     cursor: pointer;
 }
 
-.img_toggle-map {
-    padding: 1rem;
-    height: 1rem;
-}
-
 .btn_toggle-references {
     position: absolute;
     height: 100%;
@@ -59,4 +54,17 @@
     border: none;
     cursor: pointer;
     background-color: var(--lightdisabled);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img_toggle-map {
+    padding: 1rem;
+    height: 1rem;
+}
+
+.img_toggle-ref {
+    /* padding: 1rem; */
+    height: 4rem;
 }

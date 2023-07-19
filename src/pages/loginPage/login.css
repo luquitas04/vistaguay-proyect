@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
     padding: 1rem;
     color: var(--lightdisabled);
 }
@@ -25,12 +25,12 @@
     font-size: 1rem;
     font-family: var(--font);
     color: var(--lightdisabled);
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.7rem;
     text-transform: uppercase;
 }
 
 .login_pres hr {
-    width: 20rem;
+    width: 21.7rem;
     background-color: var(--lightdisabled);
 }
 

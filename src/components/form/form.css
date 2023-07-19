@@ -10,10 +10,10 @@
     height: 2.5rem;
     width: 20rem;
     padding: 0.5rem;
+    padding-right: 1rem;
     font-family: var(--fonts);
     font-size: 1.25rem;
-    color: var(--dark);
-}
+}   
 
 .btn {
     margin-top: .5rem;
@@ -64,38 +64,28 @@
     text-align: center;
 }
 
-.btn_inp-eye,
-.btn_inp-eyeSlash {
-    position: absolute;
-    top: 47.1%;
-    left: 56%;
+.container_inp {
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    align-items: center;
+}
+
+.user_logo {
     height: 2rem;
     width: 2rem;
+    position: absolute;
+    margin-right: 1rem;
     background: white;
-    border: none;
-    cursor: pointer;
-}
-
-@media (max-width:1298px) {
-    .btn_inp-eye,
-    .btn_inp-eyeSlash {
-        top: 47.4%;
-        left: 58.5%;
-    }
-}
-
-@media (max-width:768px) {
-    .btn_inp-eye,
-    .btn_inp-eyeSlash {
-        top: 47.5%;
-        left: 75%;
-    }
 }
 
 .btn_inp-eye {
-    background-image: url("./assets/eye.svg");
-}
-
-.btn_inp-eyeSlash {
-    background-image: url("./assets/eyeSlash.svg");
+    background: white;
+    position: absolute;
+    margin-right: 1rem;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    cursor: pointer;
 }

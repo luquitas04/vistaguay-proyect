@@ -1,9 +1,7 @@
 import "./references.css"
 import { Button } from "../../components";
 import { useState } from "react";
-import Silobolsas from "../../data/Silobolsas_San_Genaro.json"
-import { useParams } from "react-router";
-import { getNodos } from "../../helpers/getNodos";
+import { Arrow } from "../../assets";
 
 export const References = ({ toggleReferences, isActiveReferences, data }) => {
 
@@ -15,7 +13,7 @@ export const References = ({ toggleReferences, isActiveReferences, data }) => {
   };
 
     // const { features } = useParams()
-    const nodos = getNodos(features)
+    // const nodos = getNodos(features)
   return (
     <div
       className={`references_div ${show ? 'fadeInRight' : 'fadeOutRight'}`}
@@ -32,18 +30,19 @@ export const References = ({ toggleReferences, isActiveReferences, data }) => {
       
       <h4>Todos mis Nodos</h4>
 
-      <hr />
       
       <div className="container_campañas">
+      <hr />
       
+      <hr />
       </div>
 
-      <hr />
 
       <Button
         onClick={closeReferences}
         className={"btn_references"}
-        textButton={"Cerrar Referencias"}
+        // textButton={<Arrow className={"arrow_ref"} fill={"var(--darkdisabled)"}/>}
+        textButton={"cerrar referencias"}
       />
     </div>
   )

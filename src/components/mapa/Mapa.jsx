@@ -16,8 +16,9 @@ import { useEffect, useState } from 'react';
 import { Button } from "../button/Button";
 import { useToggle } from '../../hooks/useToggle';
 import { Sidebar } from '../sidebar/Sidebar';
-import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
 import { References } from "../../pages";
+import Hoja from "../../assets/hoja.svg"
+import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
 
 export const Mapa = () => {
 
@@ -82,7 +83,7 @@ export const Mapa = () => {
 
   const { toggle, isActive } = useToggle();
   const { toggle:toggleReferences, isActive:isActiveReferences } = useToggle();
-  
+
   return (
     <div>
       <Button
@@ -98,7 +99,7 @@ export const Mapa = () => {
         onClick={toggleReferences}
         className={`btn_toggle-references animate__animated ${isActiveReferences ? 'fadeOutRight' : 'fadeInRight'}`}
         style={{ zIndex: isActiveReferences ? -1 : 1 }}
-        textButton={""}
+        textButton={<img src={Hoja} className="img_toggle-ref" alt="Toggle Referencias"/>}
       />
 
       {isActiveReferences && (<References isActiveReferences={isActiveReferences} toggleReferences={toggleReferences} />)}

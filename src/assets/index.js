@@ -4,3 +4,6 @@ export * from './Nodos';
 export * from './VlDa';
 export * from './Arrow';
 export * from './Xmark';
+export * from './eye';
+export * from './EyeSlash';
+export * from './User';

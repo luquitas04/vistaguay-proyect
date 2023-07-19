@@ -1,18 +1,19 @@
+import "./form.css";
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Input } from "../index";
 import { Register } from '../../pages';
-import "./form.css";
+import { Eye, EyeSlash, User } from "../../assets";
 
 export const Form = () => {
-  
+
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const login = () => {
+  const login = (event) => {
     event.preventDefault();
-    if (username === 'Lucas' && password === '123456') {
+    if (username === 'test@gmail.com' && password === 'test') {
       navigate('/mapa')
     } else { alert('Usuario o contraseña incorrectos') };
     setUsername('');
@@ -22,45 +23,51 @@ export const Form = () => {
   // Ventana Register
   const [mostrarVentana, setMostrarVentana] = useState(false);
 
-  const opendWindow = () => {
+  const opendWindow = (event) => {
     event.preventDefault();
     setMostrarVentana(!mostrarVentana);
   };
-  const closeWindow = () => {
+  const closeWindow = (event) => {
     event.preventDefault();
     setMostrarVentana(false);
   }
 
   // Visibilidad de contraseña 
-  // const [shown,setShown] = useState(true);
-  // const switchShown = () => {
-  //   event.preventDefault();
-  //   setShown(!shown);
-  // };
+  const [shown, setShown] = useState(false);
+  const switchShown = (event) => {
+    event.preventDefault();
+    setShown(!shown);
+  };
 
   return (
     <form>
       <div>
         <div className='div_container'>
-          <Input
-            className={'inp'}
-            placeholder={'email'}
-            type={'text'}
-            value={username}
-            onChange={event => setUsername(event.target.value)}
-          />
-          <Input
-            className={'inp'}
-            placeholder={'contraseña'}
-            type={'password'}
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-          />
-          {/* <Button 
-            className={!shown ? 'btn_inp-eye' : 'btn_inp-eyeSlash'} 
-            onClick={switchShown} 
-          /> */}
-          
+          <div className='container_inp'>
+            <Input
+              className={'inp'}
+              placeholder={'email'}
+              type={'text'}
+              value={username}
+              onChange={event => setUsername(event.target.value)}
+            />
+            <User className={"user_logo"} />
+          </div>
+          <div className='container_inp'>
+            <Input
+              className={'inp'}
+              placeholder={'contraseña'}
+              type={shown ? 'text' : 'password'}
+              value={password}
+              onChange={event => setPassword(event.target.value)}
+            />
+            <Button
+              className={'btn_inp-eye'}
+              onClick={switchShown}
+              textButton={!shown ? <EyeSlash /> : <Eye />}
+            />
+          </div>
+
           <Button className={'btn'} textButton={'login'} onClick={login} />
           <Link className='link_form'>¿Olvidaste tu clave?</Link>
         </div>

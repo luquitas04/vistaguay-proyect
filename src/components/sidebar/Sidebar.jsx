@@ -68,7 +68,7 @@ export const Sidebar = ({ isActive, toggle }) => {
           <Button
             className="btn-logo_arrow"
             onClick={closeSidebar}
-            textButton={<Arrow />}
+            textButton={<Arrow className={"arrow-icon"}/>}
           />
           <nav className='nav'>
 
