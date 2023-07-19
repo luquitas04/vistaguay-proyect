@@ -17,6 +17,7 @@ import { Button } from "../button/Button";
 import { useToggle } from '../../hooks/useToggle';
 import { Sidebar } from '../sidebar/Sidebar';
 import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
+import { References } from "../../pages";
 
 export const Mapa = () => {
 
@@ -78,27 +79,40 @@ export const Mapa = () => {
       });
     },
   });
-  const { toggle, isActive } = useToggle();
 
+  const { toggle, isActive } = useToggle();
+  const { toggle:toggleReferences, isActive:isActiveReferences } = useToggle();
+  
   return (
     <div>
       <Button
         onClick={toggle}
         className={`btn_toggle-map animate__animated ${isActive ? 'fadeOutLeft' : 'fadeInLeft'}`}
-        style={{ zIndex: isActive ? -1 : 1 }}
+        style={{ zIndex: isActive ? -1 : 2 }}
         textButton={<img src={Vistaguay} className="img_toggle-map" alt="Logo Vistaguay" />}
       />
+      
       {isActive && (<Sidebar isActive={isActive} toggle={toggle} />)}
-      <div style={{ zIndex: 0 }} id="map"></div>
+      
+      <Button
+        onClick={toggleReferences}
+        className={`btn_toggle-references animate__animated ${isActiveReferences ? 'fadeOutRight' : 'fadeInRight'}`}
+        style={{ zIndex: isActiveReferences ? -1 : 1 }}
+        textButton={""}
+      />
+
+      {isActiveReferences && (<References isActiveReferences={isActiveReferences} toggleReferences={toggleReferences} />)}
 
       {/* <div style={{ zIndex: 1 }} id="points">
       {pointData.map((point, index) => (
         <div key={index}>
-          <p>Point ID: {point.getId()}</p>
-          <p>Point Geometry: {point.getGeometry().getCoordinates()}</p>
+        <p>Point ID: {point.getId()}</p>
+        <p>Point Geometry: {point.getGeometry().getCoordinates()}</p>
         </div>
-      ))}
-    </div> */}
+        ))}
+      </div> */}
+
+      <div style={{ zIndex: 0 }} id="map"></div>
     </div>
   );
 };

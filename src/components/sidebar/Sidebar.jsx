@@ -1,11 +1,11 @@
 import 'animate.css';
 import "./sidebar.css";
 import { Link, useNavigate } from "react-router-dom"
-import { Arrow, Chart, MostrarReferencias, Nodos, VlDa } from "../../assets";
+import { Arrow, Chart, Nodos, VlDa } from "../../assets";
 import { Button } from '../button/Button';
 import { useState } from 'react';
 import { useToggle } from '../../hooks/useToggle';
-import { NodosPage, References, Statistics } from '../../pages';
+import { NodosPage, Statistics } from '../../pages';
 import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
 
 export const Sidebar = ({ isActive, toggle }) => {
@@ -14,9 +14,9 @@ export const Sidebar = ({ isActive, toggle }) => {
   const cerrarSesion = () => {
     navigate('/');
   }
-  const [isVisible, setIsVisible] = useState(isActive);
+  const [show, setShow] = useState(isActive);
   const closeSidebar = () => {
-    setIsVisible(false);
+    setShow(false);
     if (isActiveNodos) {
       setTimeout(() => toggleNodos(), 100);
     }
@@ -34,8 +34,6 @@ export const Sidebar = ({ isActive, toggle }) => {
     };
     toggleNodos();
   };
-  // Toggle References
-  const { toggle: toggleReferences, isActive: isActiveReferences } = useToggle();
 
   // Toggle Stats
   const { toggle: toggleStats, isActive: isActiveStats } = useToggle();
@@ -49,13 +47,13 @@ export const Sidebar = ({ isActive, toggle }) => {
   return (
     <>
       <div
-        className={`sidebar_div ${isVisible ? 'fadeInLeft' : 'fadeOutLeft'}`}
+        className={`sidebar_div ${show ? 'fadeInLeft' : 'fadeOutLeft'}`}
         style={{
           display: isActive ? 'flex' : 'none',
           zIndex: isActive ? 990 : -1,
         }}
         onAnimationEnd={() => {
-          if (!isVisible) {
+          if (!show) {
             toggle();
           }
         }}
@@ -75,22 +73,13 @@ export const Sidebar = ({ isActive, toggle }) => {
           <nav className='nav'>
 
             <div className="navLink_div">
-
+              <hr />
               <div className="div_links">
                 <Nodos />
                 <Button
                   onClick={tNodos}
                   className={'navLink'}
                   textButton={'Nodos disponibles'}
-                />
-              </div>
-              <hr />
-              <div className="div_links" >
-                <MostrarReferencias />
-                <Button
-                  onClick={toggleReferences}
-                  className={'navLink'}
-                  textButton={'Mostrar Referencias'}
                 />
               </div>
               <hr />
@@ -105,8 +94,8 @@ export const Sidebar = ({ isActive, toggle }) => {
               </div>
               <hr />
             </div>
-
             <div className="div_users">
+              <hr />
               <span>Usuario</span>
               <h4>user.example</h4>
               <Button
@@ -114,8 +103,8 @@ export const Sidebar = ({ isActive, toggle }) => {
                 className={'btn_users'}
                 textButton={'cerrar sesión'}
               />
+              <hr />
             </div>
-            <hr />
 
             <div className="footer_sidebar">
               <Link className="link_logo" to={"https://www.vistaguay.com/"} target="_blank">
@@ -127,10 +116,7 @@ export const Sidebar = ({ isActive, toggle }) => {
         </div>
       </div>
       {isActiveNodos && (<NodosPage isActiveNodos={isActiveNodos} toggleNodos={toggleNodos} />)}
-      {isActiveReferences && (<References isActiveReferences={isActiveReferences} toggleReferences={toggleReferences} />)}
       {isActiveStats && (<Statistics isActiveStats={isActiveStats} toggleStats={toggleStats} />)}
-
-
     </>
   )
 }
