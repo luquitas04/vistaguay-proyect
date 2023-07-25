@@ -5,7 +5,7 @@ export * from './mapa/Mapa';
 export * from './sidebar/Sidebar';
 export * from './PieChart/Piechart';
 export * from './BarChart/BarChart';
-export * from './Linechart/LineChart';
+export * from './Linechart/Linechart';
 
 
 

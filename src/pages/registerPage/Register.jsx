@@ -1,23 +1,26 @@
+import "./register.css";
 import { useState } from "react";
 import { Button, Input } from "../../components";
 import { useNavigate } from "react-router";
-import "./register.css";
+import { useMediaQuery } from "../../hooks";
 
 export const Register = ({ onClickWindow }) => {
   
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitRegister = () => {
+  const submitRegister = (event) => {
     event.preventDefault();
 
     if ( username === 'Lucas' && password === '123' && mail === 'lucas@gmail.com') {
-      navigate('/mapa') } else {
+      navigate('/mapa'); } else {
         alert('Hay campos que estan mal');
-      }
-  }
+      };
+  };
+
+  const isMobile = useMediaQuery()
 
   return (
     <div className="register_div">
