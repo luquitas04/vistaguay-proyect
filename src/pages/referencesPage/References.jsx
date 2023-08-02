@@ -1,7 +1,7 @@
 import "./references.css"
 import { Button } from "../../components";
 import { useState } from "react";
-import { Arrow } from "../../assets";
+import { getFetchNodos } from "../../helpers/getFetchNodos";
 
 export const References = ({ toggleReferences, isActiveReferences, data }) => {
 
@@ -12,8 +12,8 @@ export const References = ({ toggleReferences, isActiveReferences, data }) => {
     setTimeout(() => toggleReferences(), 700);
   };
 
-    // const { features } = useParams()
-    // const nodos = getNodos(features)
+  getFetchNodos()
+
   return (
     <div
       className={`references_div ${show ? 'fadeInRight' : 'fadeOutRight'}`}
@@ -33,7 +33,6 @@ export const References = ({ toggleReferences, isActiveReferences, data }) => {
       
       <div className="container_campañas">
       <hr />
-      
       <hr />
       </div>
 
@@ -41,7 +40,6 @@ export const References = ({ toggleReferences, isActiveReferences, data }) => {
       <Button
         onClick={closeReferences}
         className={"btn_references"}
-        // textButton={<Arrow className={"arrow_ref"} fill={"var(--darkdisabled)"}/>}
         textButton={"cerrar referencias"}
       />
     </div>

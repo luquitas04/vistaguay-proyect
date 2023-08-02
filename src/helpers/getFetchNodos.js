@@ -1,7 +1,7 @@
 
 export const getFetchNodos = () => {
 
-  const jsonURL = "siloBolsa-web/src/data/Silobolsas_San_Genaro.json";
+  const jsonURL = "Silobolsas_San_Genaro.json";
 
   fetch(jsonURL)
     .then((response) => response.json())

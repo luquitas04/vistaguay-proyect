@@ -26,7 +26,8 @@
                 }
             }
         ]
-    }, {
+    },
+    {
         "type": "FeatureCollection",
         "name": "Silobolsas_MonteBuey_Maiz_20_21",
         "crs": {
