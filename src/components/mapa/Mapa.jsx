@@ -19,6 +19,9 @@ import { Sidebar } from '../sidebar/Sidebar';
 import { References } from "../../pages";
 import Hoja from "../../assets/hoja.svg"
 import Vistaguay from '../../assets/vistaguayLogoDefault.svg';
+import { Tilers } from "../Points/Tilers";
+import { getNodos } from "../../helpers/getNodos";
+import { coords } from "../../data/coords";
 
 export const Mapa = () => {
 
@@ -40,30 +43,7 @@ export const Mapa = () => {
       }),
     });
 
-  // points.getSource().on('change', () => {
-  //   if (points.getSource().getState() === 'ready') {
-  //     const features = points.getSource().getFeatures();
-  //     setPointData(features);
-  //   }
-  // });
-
 }, []);
-
-// const [pointData, setPointData] = useState([]);
-// const points = new VectorLayer({
-//   source: new VectorSource({
-//     url: 'https://api.maptiler.com/data/8aa5a139-79c9-445f-850c-08befd4e6428/features.json?key=S9agc6Xvaa1CPUnUrgnt',
-//     format: new GeoJSON(),
-//   }),
-//   style: function(feature) {
-//     return new Style({
-//       stroke: new Stroke({
-//         color: '#222222be',
-//         width: 7,
-//       }),
-//       fill: null,
-//     });
-//   },})
 
   const zone = new VectorLayer({
     source: new VectorSource({
@@ -84,6 +64,8 @@ export const Mapa = () => {
   const { toggle, isActive } = useToggle();
   const { toggle:toggleReferences, isActive:isActiveReferences } = useToggle();
 
+  const cultivoData = getNodos(coords);
+
   return (
     <div>
       <Button
@@ -92,9 +74,9 @@ export const Mapa = () => {
         style={{ zIndex: isActive ? -1 : 2 }}
         textButton={<img src={Vistaguay} className="img_toggle-map" alt="Logo Vistaguay" />}
       />
-      
+
       {isActive && (<Sidebar isActive={isActive} toggle={toggle} />)}
-      
+
       <Button
         onClick={toggleReferences}
         className={`btn_toggle-references animate__animated ${isActiveReferences ? 'fadeOutRight' : 'fadeInRight'}`}
@@ -104,16 +86,8 @@ export const Mapa = () => {
 
       {isActiveReferences && (<References isActiveReferences={isActiveReferences} toggleReferences={toggleReferences} />)}
 
-      {/* <div style={{ zIndex: 1 }} id="points">
-      {pointData.map((point, index) => (
-        <div key={index}>
-        <p>Point ID: {point.getId()}</p>
-        <p>Point Geometry: {point.getGeometry().getCoordinates()}</p>
-        </div>
-        ))}
-      </div> */}
-
       <div style={{ zIndex: 0 }} id="map"></div>
+      <Tilers cultivoData={cultivoData}/>
     </div>
   );
 };
